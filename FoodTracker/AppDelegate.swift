@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  FoodTracker
-//
-//  Created by Wasith Theerapattrathamrong on 3/2/2561 BE.
-//  Copyright © 2561 Wasith Theerapattrathamrong. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
