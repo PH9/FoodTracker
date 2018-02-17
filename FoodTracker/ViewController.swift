@@ -6,7 +6,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
     @IBOutlet weak var mealLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
-
+    @IBOutlet weak var ratingControl: RatingControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nameTextField.delegate = self
@@ -18,11 +19,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UINavigationControl
         textField.resignFirstResponder()
         self.mealLabel.text = textField.text
         return true
-    }
-
-    @IBAction func setDefaultLabel(_ sender: Any) {
-        self.nameTextField.resignFirstResponder()
-        self.mealLabel.text = self.nameTextField.text
     }
 
     @IBAction func selectPhotoFromLibrary(_ sender: Any) {
