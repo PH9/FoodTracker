@@ -2,6 +2,15 @@ import UIKit
 
 @IBDesignable
 class RatingControl: UIStackView {
+
+    //MARK: Properties
+    private var ratingButtons = [UIButton]()
+    
+    var rating = 0 {
+        didSet {
+            updateButtonsSelectionStates()
+        }
+    }
     
     @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
@@ -15,12 +24,7 @@ class RatingControl: UIStackView {
         }
     }
     
-    var ratingButtons = [UIButton]()
-    var rating = 0 {
-        didSet {
-            updateButtonsSelectionStates()
-        }
-    }
+    // MARK: - Initialization
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -81,20 +85,24 @@ class RatingControl: UIStackView {
     // MARK: - Button Action
     @objc func ratingButtonTapped(button: UIButton) {
         guard let index = ratingButtons.index(of: button) else {
-            fatalError("")
+            fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
         }
         
+        // Calculate the rating of the selected button
         let selectedRating = index + 1
         
         if selectedRating == rating {
+            // If the selected star represents the current rating, reset the rating to 0.
             rating = 0
         } else {
+            // Otherwise set the rating to the selected star
             rating = selectedRating
         }
     }
     
     private func updateButtonsSelectionStates() {
         for (index, button) in ratingButtons.enumerated() {
+            // If the index of a button is less than the rating, that button should be selected.
             button.isSelected = index < rating
             
             // Set the hint string for the currently selected star
