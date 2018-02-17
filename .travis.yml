@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode9.2
 branches:
   only:
-    - master
+  - master
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
@@ -18,3 +18,6 @@ script:
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild -project "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+notifications:
+  slack:
+    secure: RCOOd/izlgPhF/ZiekxKLJPZpsZhntC6AkpWPqKHn18OEo090gD8IUpU7RCEZwna35pNfBEdM9tt+toXFOx+3l7PdU58EzhXF7qC76MS20BZMuxOUiOKjVaSGbTyNuWw2cV16Taa1Hsy6UM1lcFudlQTeEiFiFZbDLzf6OSD1HbriAqhG+MvTkcNR5P5bLBVO+pjKlszkxVrie3fGq7CUELovYiZ39qtysySLb9Hrr+xtn7OMg8D6lNvu1OYnRLXDi+IY2JvlGeOqIyDggIVE9ALrx+m4in9KXN1ggpc7ZD6Kt/FD7ZicmKUPjSd/ID9hcNss/YvnTOlNG4YvovVjJ2QunXiRpctYbmD19cajf/HUB5heV0e2eW/Kq78MAzfRkh1/QD+xOCgC7qQGmVHm6ZXTAShEhuhHmOap/nZtidUIG3KxLbc328g8Hv9yzzZf+ovPKaWPJGzsfE/PdSLmLrxKzlMLIQIU5jtqBJBxtDcsVVj2oKECh5RxhMmiL1v6CjOIbsiZhhSwOT4HqsO+HsJR6NS6PtrfLztIEMmYpwAnwP5quQ/+Xiae0iM2Vjq6eKcHgo+bmqoeAoKSxjzrjg1PuhRal06oeHi2NpDPp6SmIbtbJiPetwIeDtdF0LNRT9RB09ZG4gKW/gZhYq7z+sxLkEZw7VvedMgX0yYeL0=
